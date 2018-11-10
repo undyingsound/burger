@@ -19,11 +19,11 @@
             <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
-                <li>
+                <li class="listStyle">
                     {{this.id}}
                     {{this.burger_name}}
 
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <form action="/burgers/update/{{this.id}}?_method=PUT" method="POST">
                         <input type="hidden" name="devoured" value="true">
                         <button class="btn-danger" type="submit">Devour It!</button>
                     </form>
@@ -59,7 +59,7 @@
 
             <h2>Add A Burger!</h2>
 
-            <form class="create-update-form" action="/" method="POST">
+            <form class="create-update-form" action="/burgers/create/" method="POST">
 
                 <div class="form-group">
                     <p>Enter a burger you want to order and click the Submit Order button.</p>
