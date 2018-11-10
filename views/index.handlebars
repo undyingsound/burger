@@ -1,0 +1,77 @@
+<div class="container">
+
+    <div class="row">
+        <div class="center col-sm-12 text-center">
+            <img src="assets/img/IZPE.gif" alt="Mike's Burgers" class="title">
+            <h1>Mike's Burgers</h1>
+            <p></p>
+        </div>
+    </div>
+    
+
+    <div class="row tte">
+        <br>
+        <div class="col-sm-6 text-center">
+            
+            
+            <h2>Time To Eat!</h2>
+
+            <ul>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li>
+                    {{this.id}}
+                    {{this.burger_name}}
+
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="devoured" value="true">
+                        <button class="btn-danger" type="submit">Devour It!</button>
+                    </form>
+
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+
+        </div>
+
+        <div class="col-sm-6 text-center">
+            
+            <h2>These Burgers were Tasty!</h2>
+
+            {{#each burgers}}
+            {{#if this.devoured}}
+            <li class="listStyle">
+                {{this.id}}
+                {{this.burger_name}}
+
+            </li>
+            {{/if}}
+            {{/each}}
+
+        </div>
+
+    </div>
+   
+
+    <div class="row addBurg tte">
+        <div class="center col-sm-12 text-center">
+
+            <h2>Add A Burger!</h2>
+
+            <form class="create-update-form" action="/" method="POST">
+
+                <div class="form-group">
+                    <p>Enter a burger you want to order and click the Submit Order button.</p>
+                    <input type="text" id="ca" name="burger_name">
+                </div>
+
+                <button class="btn-primary" type="submit">Submit Order</button>
+            </form>
+
+        </div>
+    
+    </div>
+    
+
+</div>
